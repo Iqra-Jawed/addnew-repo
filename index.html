@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h1>Enter Your Details Here:</h1>
+                <form action="" onsubmit="event.preventDefault(); myfunc();">
+                    <input type="text" id="getname" class="form-control mt-3" placeholder="Enter Your Name">
+                    <input type="text" id="getfname" class="form-control mt-3" placeholder="Enter Your Father Name">
+                    <input type="text" id="getphy" class="form-control mt-3" placeholder="Enter Your Physics Marks">
+                    <input type="text" id="getchem" class="form-control mt-3" placeholder="Enter Your Chemistry Marks">
+                    <input type="text" id="getmath" class="form-control mt-3" placeholder="Enter Your Maths Marks">
+                    <input type="text" id="getbio" class="form-control mt-3" placeholder="Enter Your Biology">
+                    <input type="text" id="geteng" class="form-control mt-3" placeholder="Enter Your English ">
+                    <input type="text" id="getrem" placeholder="Remarks" class="form-control mt-3">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="col-lg-6">
+                <h1>Marksheet Details:</h1>
+                <h5 id="setname"></h5>
+                <h5 id="setfname"></h5>
+                <h5 id="setphy"></h5>
+                <h5 id="setchem"></h5>
+                <h5 id="setmath"></h5>
+                <h5 id="setbio"></h5>
+                <h5 id="seteng"></h5>
+                <h5 id="setom"></h5>
+                <h5 id="settm"></h5>
+                <h5 id="setper"></h5>
+                <h5 id="setgrd"></h5>
+                <h5 id="setrem"></h5>
+            </div>
+        </div>
+    </div>
+<script>
+    function myfunc(){
+        let name = document.getElementById("getname").value;
+        let fname = document.getElementById("getfname").value;
+        let  phy= document.getElementById("getphy").value;
+        let chem = document.getElementById("getchem").value;
+        let math = document.getElementById("getmath").value;
+        let bio = document.getElementById("getbio").value;
+        let eng = document.getElementById("geteng").value;
+        let rem = document.getElementById("getrem").value;
+
+        let om = phy + chem + math + bio + eng;
+        let tm = 500;
+        let per = (om/tm)*100;
+
+        let grd = "";
+        if(per >= 90){
+            grd = "A";
+        }
+        else if(per >= 80){
+            grd = "B";
+        }
+        else if(per >= 60){
+            grd = "C";
+        }
+        else if(per >= 50){
+            grd = "D";
+        }
+        else{
+            grd ="F"
+        }
+        
+        document.getElementById("setname").innerHTML = "Name:" + name;
+        document.getElementById("setfname").innerHTML = "Father's Name:" + fname;
+        document.getElementById("setphy").innerHTML = "Physics Marks:" + phy;
+        document.getElementById("setchem").innerHTML = "Chemistry Marks:" + chem;
+        document.getElementById("setmath").innerHTML = "Maths Marks:" + math;
+        document.getElementById("setbio").innerHTML = "Biology Marks:" + bio;
+        document.getElementById("seteng").innerHTML = "English Marks:" + eng;
+        document.getElementById("setom").innerHTML = "Obtained Marks:" + om;
+        document.getElementById("settm").innerHTML = "Total Marks1:" + tm;
+        document.getElementById("setper").innerHTML = "Percentage:" + per.toFixed(2);
+        document.getElementById("setgrd").innerHTML = "Grade:" + grd;
+        document.getElementById("setrem").innerHTML = "Remarks:" + rem;
+
+        document.getElementById("getname").value = "";
+        document.getElementById("getfname").value = "";
+        document.getElementById("getphy").value = "";
+        document.getElementById("getchem").value = "";
+        document.getElementById("getmath").value = "";
+        document.getElementById("getbio").value = "";
+        document.getElementById("geteng").value = "";
+        document.getElementById("getrem").value = "";
+
+    }
+</script>
+
+</body>
+</html>
